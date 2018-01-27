@@ -5,11 +5,11 @@
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
-    padding: 16px 32px;
-    text-align: center;
+    padding: 10px 32px;
+    text-align: left;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin: 2px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
 }
@@ -50,7 +50,7 @@
 .upgrade-container{
 	display: flex;
 	flex-direction: column;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	justify-content: left;
 }
 .canvas-container{
@@ -72,16 +72,25 @@
 </div>
 
 <div class="upgrade-container">
-<button id="treeBut" class='button' onclick="treeUp()">Mongogo Tree(20 Nuts)</button><br>
-<button id="irrBut" class='button' onclick="irrUp()">African Tear Irrigation(80 Nuts)</button><br>
-<button id="pressBut" class='button' onclick="pressUp()">Nut Press(150 Nuts)</button><br>
-<button id="crackerBut" class='button' onclick="crackerUp()">Nut Cracker(400 Nuts)</button><br>
-<button id="gmoBut" class='button' onclick="gmoUp()">GMO's(1000 Nuts)</button><br>
-<button id="shackBut" class='button' onclick="shackUp()">Nut Shack(1500 Nuts)</button><br>
-<button id="truckBut" class='button' onclick="truckUp()">Nut Trucks(2000 Nuts)</button><br>
-<button id="factoryBut" class='button' onclick="factoryUp()">Nut Factory(5000 Nuts)</button><br>
-<button id="rrBut" class='button' onclick="rrUp()">Trans Continental Nut RR(9000 Nuts)</button><br>
-<button id="mGadgetBut" class='button' onclick="mGadgetUp()">Mongogo Go Go Nut Gadget(15000 Nuts)</button><br>
+<button id="treeBut" class='button' onclick="treeUp()">
+	<span><img src="./mTreeG.png" align="center"></span>
+	<span>Mongogo Tree(20 Nuts)</span>
+</button>
+<button id="irrBut" class='button' onclick="irrUp()">
+	<span><img src="./mIrrG.png" align="center"></span>
+	<span>African Tear Irrigation(80 Nuts)</span>
+</button>
+<button id="pressBut" class='button' onclick="pressUp()">
+	<span><img src="./mPressG.png" align="center"></span>
+	<span>Nut Press(150 Nuts)</span>
+</button>
+<button id="crackerBut" class='button' onclick="crackerUp()"><span><img src="./mCrackerG.png" align="center"></span><span>Nut Cracker(400 Nuts)</span></button>
+<button id="gmoBut" class='button' onclick="gmoUp()"><span><img src="./mGmoG.png" align="center"></span><span>GMO's(1000 Nuts)</span></button>
+<button id="shackBut" class='button' onclick="shackUp()"><span><img src="./mShackG.png" align="center"></span><span>Nut Shack(1500 Nuts)</button>
+<button id="truckBut" class='button' onclick="truckUp()"><span><img src="./mTruckG.png" align="center"></span><span>Nut Trucks(2000 Nuts)</span></button>
+<button id="factoryBut" class='button' onclick="factoryUp()"><span><img src="./mFactoryG.png" align="center"></span><span>Nut Factory(5000 Nuts)</span></button>
+<button id="rrBut" class='button' onclick="rrUp()"><span><img src="./mRrG.png" align="center"></span><span>Trans Continental Nut RR(9000 Nuts)</span></button>
+<button id="mGadgetBut" class='button' onclick="mGadgetUp()"><span><img src="./mGadgetG.png" align="center"></span><span>Mongogo Go Go Nut Gadget(15000 Nuts)</span></button>
 </div>
 </div>
 			<!-- <img src="./mTreeG.png" alt="Fix it" width="32" height="32" align="middle">
