@@ -1,0 +1,280 @@
+<html>
+<head>
+<style>
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #ccc;
+    color: white;
+}
+.button1 {
+	background-color: #ccc;
+    color: white;
+}
+.button1:hover {
+    background-color: #B70000;
+    color: white;
+    display: Obtain Nuts!;
+}
+</style>
+</head>
+            <canvas id="gameCanvas" width="800" height="800"></canvas>
+            <img id="mongogoN" src="./mongogoN.png" alt="Fix it" width="0" height="0">
+            <img id="mongogoFall" src="./mongogoFall.png" alt="Fix it" width="0" height="0">
+            <button class='button button1' style='position: fixed; top: 800; left: 0; padding:60px 360px; border-radius: 8px;' onclick='clicked()'>Obtain Nuts?</button>
+            <div style='position: fixed; left: 820px; top: 10%'>
+            <button id="treeBut" class='button' onclick="treeUp()">Mongogo Tree(20 Nuts)</button><br>
+			<button id="irrBut" class='button' onclick="irrUp()">African Tear Irrigation(80 Nuts)</button><br>
+			<button id="pressBut" class='button' onclick="pressUp()">Nut Press(150 Nuts)</button><br>
+			<button id="crackerBut" class='button' onclick="crackerUp()">Nut Cracker(400 Nuts)</button><br>
+			<button id="gmoBut" class='button' onclick="gmoUp()">GMO's(1000 Nuts)</button><br>
+			<button id="shackBut" class='button' onclick="shackUp()">Nut Shack(1500 Nuts)</button><br>
+			<button id="truckBut" class='button' onclick="truckUp()">Nut Trucks(2000 Nuts)</button><br>
+			<button id="factoryBut" class='button' onclick="factoryUp()">Nut Factory(5000 Nuts)</button><br>
+			<button id="rrBut" class='button' onclick="rrUp()">Trans Continental Nut RR(9000 Nuts)</button><br>
+			<button id="mGadgetBut" class='button' onclick="mGadgetUp()">Mongogo Go Go Nut Gadget(15000 Nuts)</button><br>
+			</div>
+			<!-- <img src="./mTreeG.png" alt="Fix it" width="32" height="32" align="middle">
+			<img src="./mIrrG.png" alt="Fix it" width="32" height="32" align="middle">
+			<img src="./mPressG.png" alt="Fix it" width="32" height="32" align="middle">
+			<img src="./mCrackerG.png" alt="Fix it" width="32" height="32" align="middle">
+			<img src="./mGmoG.png" alt="Fix it" width="32" height="32" align="middle">
+			<img src="./mShackG.png" alt="Fix it" width="32" height="32" align="middle">
+			<img src="./mTruckG.png" alt="Fix it" width="32" height="32" align="middle">
+			<img src="./mFactoryG.png" alt="Fix it" width="32" height="32" align="middle">
+			<img src="./mRrG.png" alt="Fix it" width="32" height="32" align="middle">
+			<img src="./mGadgetG.png" alt="Fix it" width="500" height="500" align="middle"> -->
+<script>
+c = document.getElementById('gameCanvas')
+bkgrnd = document.getElementById('mongogoN')
+mFall = document.getElementById('mongogoFall')
+ctx = c.getContext('2d')
+var mFallArr = [];
+var upgrades = [
+	treeObj = {butAttr: document.getElementById('treeBut'), price: 20},
+	irrObj = {butAttr: document.getElementById('irrBut'), price: 80},
+	pressObj = {butAttr: document.getElementById('pressBut'), price: 150},
+	crackerObj = {butAttr: document.getElementById('crackerBut'), price: 400},
+	gmoObj = {butAttr: document.getElementById('gmoBut'), price: 1000},
+	shackObj = {butAttr: document.getElementById('shackBut'), price: 1500},
+	truckObj = {butAttr: document.getElementById('truckBut'), price: 2000},
+	factoryObj = {butAttr: document.getElementById('factoryBut'), price: 5000},
+	rrObj = {butAttr: document.getElementById('rrBut'), price: 9000},
+	mGadgetObj = {butAttr: document.getElementById('mGadgetBut'), price: 15000},
+	];
+var fallY = -80;
+var fallX = -80;
+var clicks = 0;
+var n=0;
+var mongogoNuts = 0;
+
+
+class Nut{
+	constructor() {
+	this.x=Math.random()*800;
+	this.y=-40;
+	this.run = true;
+	}
+	show() {
+		if(this.run){
+		ctx.drawImage(mFall,this.x,this.y);
+		this.y+=10;
+		if(this.y>c.height) {
+			this.run = false;
+			}
+		}
+	}
+}
+window.onload = function(e){
+ctx.drawImage(bkgrnd,0,0)
+update();
+}
+
+function nutCheck(upgradeObj){
+	// upgrade = document.getElementById(item)
+	//var nutCount = 20;
+	if(mongogoNuts<=upgradeObj.price) {
+		disable(upgradeObj,true)
+	} else {
+		disable(upgradeObj,false);
+	}
+}
+
+function disable(upgradeObj,state){
+	if(state) {
+ 		upgradeObj.butAttr.style.opacity = "0.6";
+     	upgradeObj.butAttr.style.cursor = "not-allowed";
+     } else {
+     	upgradeObj.butAttr.style.opacity = "1";
+     	upgradeObj.butAttr.style.cursor = "crosshair";
+ 	}
+}
+
+function update(){
+	drawAll();
+	nutCheck(upgrades[0]);
+	for(let i=0;i<mFallArr.length;i++){
+	mFallArr[i].show();
+	}
+	window.requestAnimationFrame(update);
+	}
+
+function treeUp() {
+	function mTree() {
+		mongogoNuts+=0.5
+	}
+	if(mongogoNuts>20) {
+		mongogoNuts-=20
+		setInterval(mTree, 1000)
+	} else {
+
+	}
+}
+
+function irrUp() {
+	function mIrr() {
+		mongogoNuts+=1
+	}
+	if(mongogoNuts>80) {
+		mongogoNuts-=80
+		setInterval(mIrr, 1000)
+	} else {
+
+	}
+}
+
+function pressUp() {
+	function mPress() {
+		mongogoNuts+=2
+	}
+	if(mongogoNuts>150) {
+		mongogoNuts-=150
+		setInterval(mPress, 1000)
+	} else {
+
+	}
+}
+
+function crackerUp() {
+	function mCracker() {
+		mongogoNuts+=7
+	}
+	if(mongogoNuts>400) {
+		mongogoNuts-=400
+		setInterval(mCracker, 1000)
+	} else {
+
+	}
+}
+
+function gmoUp() {
+	function mGmo() {
+		mongogoNuts+=10
+	}
+	if(mongogoNuts>1000) {
+		mongogoNuts-=1000
+		setInterval(mGmo, 1000)
+	} else {
+
+	}
+}
+
+function shackUp() {
+	function mShack() {
+		mongogoNuts+=13
+	}
+	if(mongogoNuts>1500) {
+		mongogoNuts-=1500
+		setInterval(mShack, 1000)
+	} else {
+
+	}
+}
+
+function truckUp() {
+	function mTruck() {
+		mongogoNuts+=14
+	}
+	if(mongogoNuts>2000) {
+		mongogoNuts-=2000
+		setInterval(mTruck, 1000)
+	} else {
+
+	}
+}
+
+function factoryUp() {
+	function mFactory() {
+		mongogoNuts+=18
+	}
+	if(mongogoNuts>5000) {
+		mongogoNuts-=5000
+		setInterval(mFactory, 1000)
+	} else {
+
+	}
+}
+
+function rrUp() {
+	function mRR() {
+		mongogoNuts+=25
+	}
+	if(mongogoNuts>9000) {
+		mongogoNuts-=9000
+		setInterval(mRR, 1000)
+	} else {
+
+	}
+}
+
+function mGadgetUp() {
+	function mGadgetUp() {
+		mongogoNuts+=30
+	}
+	if(mongogoNuts>15000) {
+		mongogoNuts-=15000
+		setInterval(mGadgetUp, 1000)
+	} else {
+
+	}
+}
+function drawAll(){
+	ctx.drawImage(bkgrnd,0,0);
+	ctx.fillStyle='red'
+	ctx.font = "50px Impact";
+	ctx.fillText("Mongogo Nuts: "+ mongogoNuts, 10, 50);
+
+/*var grd=ctx.createLinearGradient(0,0,1000,1000);
+grd.addColorStop(0,"Aqua");
+grd.addColorStop(1,"Chartreuse");*/
+}
+
+function clicked() {
+	mFallArr[n] = new Nut();
+	n++;
+	if(n==20)
+	n=0;
+	clicks++;
+	mongogoNuts++;
+}
+
+
+//Compression Function
+function drawRect(canvasX,canvasY,rectX,rectY,color){
+	ctx.fillStyle = color
+	ctx.fillRect(canvasX,canvasY,rectX,rectY)
+}
+
+</script>
+</html>
