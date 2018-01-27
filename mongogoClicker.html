@@ -102,8 +102,6 @@ update();
 }
 
 function nutCheck(upgradeObj){
-	// upgrade = document.getElementById(item)
-	//var nutCount = 20;
 	if(mongogoNuts<=upgradeObj.price) {
 		disable(upgradeObj,true)
 	} else {
@@ -123,7 +121,9 @@ function disable(upgradeObj,state){
 
 function update(){
 	drawAll();
-	nutCheck(upgrades[0]);
+	for(let i=0;i<upgrades.length;i++){
+	nutCheck(upgrades[i]);
+	}
 	for(let i=0;i<mFallArr.length;i++){
 	mFallArr[i].show();
 	}
