@@ -75,21 +75,22 @@ mFall = document.getElementById('mongogoFall')
 ctx = c.getContext('2d')
 var mFallArr = [];
 var upgrades = [
-	treeObj = {butAttr: document.getElementById('treeBut'), price: 20},
-	irrObj = {butAttr: document.getElementById('irrBut'), price: 80},
-	pressObj = {butAttr: document.getElementById('pressBut'), price: 150},
-	crackerObj = {butAttr: document.getElementById('crackerBut'), price: 400},
-	gmoObj = {butAttr: document.getElementById('gmoBut'), price: 1000},
-	shackObj = {butAttr: document.getElementById('shackBut'), price: 1500},
-	truckObj = {butAttr: document.getElementById('truckBut'), price: 2000},
-	factoryObj = {butAttr: document.getElementById('factoryBut'), price: 5000},
-	rrObj = {butAttr: document.getElementById('rrBut'), price: 9000},
-	mGadgetObj = {butAttr: document.getElementById('mGadgetBut'), price: 15000},
+	treeObj = {butAttr: document.getElementById('treeBut'), price: 20, rate:0.5},
+	irrObj = {butAttr: document.getElementById('irrBut'), price: 80, rate:1},
+	pressObj = {butAttr: document.getElementById('pressBut'), price: 150, rate:2},
+	crackerObj = {butAttr: document.getElementById('crackerBut'), price: 400, rate:7},
+	gmoObj = {butAttr: document.getElementById('gmoBut'), price: 1000, rate:10},
+	shackObj = {butAttr: document.getElementById('shackBut'), price: 1500, rate:13},
+	truckObj = {butAttr: document.getElementById('truckBut'), price: 2000, rate:14},
+	factoryObj = {butAttr: document.getElementById('factoryBut'), price: 5000, rate:18},
+	rrObj = {butAttr: document.getElementById('rrBut'), price: 9000, rate:25},
+	mGadgetObj = {butAttr: document.getElementById('mGadgetBut'), price: 15000, rate:30},
 	];
 var fallY = -80;
 var fallX = -80;
 var clicks = 0;
 var n=0;
+var mongogoRate = 0;
 var mongogoNuts = 0;
 
 
@@ -111,6 +112,7 @@ class Nut{
 }
 window.onload = function(e){
 ctx.drawImage(bkgrnd,0,0)
+setInterval(function(){mongogoNuts+=mongogoRate}, 100)
 update();
 }
 
@@ -128,7 +130,7 @@ function disable(upgradeObj,state){
      	upgradeObj.butAttr.style.cursor = "not-allowed";
      } else {
      	upgradeObj.butAttr.style.opacity = "1";
-     	upgradeObj.butAttr.style.cursor = "crosshair";
+     	upgradeObj.butAttr.style.cursor = "pointer";
  	}
 }
 
@@ -144,129 +146,80 @@ function update(){
 	}
 
 function treeUp() {
-	function mTree() {
-		mongogoNuts+=0.5
-	}
-	if(mongogoNuts>20) {
-		mongogoNuts-=20
-		setInterval(mTree, 1000)
-	} else {
-
+	if(mongogoNuts>=upgrades[0].price) {
+		mongogoNuts-=upgrades[0].price;
+		mongogoRate+=upgrades[0].rate/10;
 	}
 }
 
 function irrUp() {
-	function mIrr() {
-		mongogoNuts+=1
-	}
-	if(mongogoNuts>80) {
-		mongogoNuts-=80
-		setInterval(mIrr, 1000)
-	} else {
 
+	if(mongogoNuts>=upgrades[1].price) {
+		mongogoNuts-=upgrades[1].price;
+		mongogoRate+=upgrades[1].rate/10;
 	}
 }
 
 function pressUp() {
-	function mPress() {
-		mongogoNuts+=2
-	}
-	if(mongogoNuts>150) {
-		mongogoNuts-=150
-		setInterval(mPress, 1000)
-	} else {
-
+	if(mongogoNuts>=upgrades[2].price) {
+		mongogoNuts-=upgrades[2].price;
+		mongogoRate+=upgrades[2].rate/10;
 	}
 }
 
 function crackerUp() {
-	function mCracker() {
-		mongogoNuts+=7
-	}
-	if(mongogoNuts>400) {
-		mongogoNuts-=400
-		setInterval(mCracker, 1000)
-	} else {
-
+	if(mongogoNuts>=upgrades[3].price) {
+		mongogoNuts-=upgrades[3].price;
+		mongogoRate+=upgrades[3].rate/10;
 	}
 }
 
 function gmoUp() {
-	function mGmo() {
-		mongogoNuts+=10
-	}
-	if(mongogoNuts>1000) {
-		mongogoNuts-=1000
-		setInterval(mGmo, 1000)
-	} else {
-
+	if(mongogoNuts>=upgrades[4].price) {
+		mongogoNuts-=upgrades[4].price;
+		mongogoRate+=upgrades[4].rate/10;
 	}
 }
 
 function shackUp() {
-	function mShack() {
-		mongogoNuts+=13
-	}
-	if(mongogoNuts>1500) {
-		mongogoNuts-=1500
-		setInterval(mShack, 1000)
-	} else {
-
+	if(mongogoNuts>=upgrades[5].price) {
+		mongogoNuts-=upgrades[5].price;
+		mongogoRate+=upgrades[5].rate/10;
 	}
 }
 
 function truckUp() {
-	function mTruck() {
-		mongogoNuts+=14
-	}
-	if(mongogoNuts>2000) {
-		mongogoNuts-=2000
-		setInterval(mTruck, 1000)
-	} else {
-
+	if(mongogoNuts>=upgrades[6].price) {
+		mongogoNuts-=upgrades[6].price;
+		mongogoRate+=upgrades[6].rate/10;
 	}
 }
 
 function factoryUp() {
-	function mFactory() {
-		mongogoNuts+=18
-	}
-	if(mongogoNuts>5000) {
-		mongogoNuts-=5000
-		setInterval(mFactory, 1000)
-	} else {
-
+	if(mongogoNuts>=upgrades[7].price) {
+		mongogoNuts-=upgrades[7].price;
+		mongogoRate+=upgrades[7].rate/10;
 	}
 }
 
 function rrUp() {
-	function mRR() {
-		mongogoNuts+=25
-	}
-	if(mongogoNuts>9000) {
-		mongogoNuts-=9000
-		setInterval(mRR, 1000)
-	} else {
-
+	if(mongogoNuts>=upgrades[8].price) {
+		mongogoNuts-=upgrades[8].price;
+		mongogoRate+=upgrades[8].rate/10;
 	}
 }
 
 function mGadgetUp() {
-	function mGadgetUp() {
-		mongogoNuts+=30
-	}
-	if(mongogoNuts>15000) {
-		mongogoNuts-=15000
-		setInterval(mGadgetUp, 1000)
-	} else {
-
+	if(mongogoNuts>=upgrades[9].price) {
+		mongogoNuts-=upgrades[9].price;
+		mongogoRate+=upgrades[9].rate/10;
 	}
 }
 function drawAll(){
 	ctx.drawImage(bkgrnd,0,0);
 	ctx.fillStyle='red'
 	ctx.font = "50px Impact";
-	ctx.fillText("Mongogo Nuts: "+ mongogoNuts, 10, 50);
+	ctx.fillText("Mongogo Nuts: "+ Math.round(mongogoNuts), 10, 50);
 
 /*var grd=ctx.createLinearGradient(0,0,1000,1000);
 grd.addColorStop(0,"Aqua");
