@@ -67,6 +67,8 @@
 <canvas id="gameCanvas" width="800" height="800"></canvas>
 <img id="mongogoN" src="./mongogoN.png" alt="Fix it" width="0" height="0">
 <img id="mongogoFall" src="./mongogoFall.png" alt="Fix it" width="0" height="0">
+<img id="mongogoFallR" src="./mongogoFallR.png" alt="Fix it" width="0" height="0">
+
 <div><button class='button1' style='width:810px; height:120px; border-radius: 8px;' onclick='clicked()'><span>Obtain Nuts?</span></button>
 </div>
 </div>
@@ -122,12 +124,15 @@ var mongogoNuts = 0;
 
 class Nut{
 	constructor() {
-	this.x=Math.random()*800;
+	this.x=Math.random()*(c.width-80);
 	this.y=-40;
 	this.run = true;
 	}
 	show() {
 		if(this.run){
+			if(mongogoNuts>10000){
+				mFall = document.getElementById('mongogoFallR');
+			}
 		ctx.drawImage(mFall,this.x,this.y);
 		this.y+=10;
 		if(this.y>c.height) {
@@ -255,6 +260,7 @@ function drawAll(){
 	ctx.fillStyle='red'
 	ctx.font = "50px Impact";
 	ctx.fillText("Mongogo Nuts: "+ Math.round(mongogoNuts), 10, 50);
+	ctx.fillText("Nuts Per Second: "+ Math.round((mongogoRate*10)*10)/10, 10, 100);
 
 /*var grd=ctx.createLinearGradient(0,0,1000,1000);
 grd.addColorStop(0,"Aqua");
