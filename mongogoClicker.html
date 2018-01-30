@@ -5,13 +5,17 @@
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
-    padding: 10px 32px;
-    text-align: left;
-    display: inline-block;
     font-size: 16px;
-    margin: 2px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
+    width: 300zpx;
+    height: 80px;
+    text-align: left;
+    display: flex;
+	flex-direction: row;
+	justify-content: left;
+	align-items: center;
+
 }
 
 .button:hover {
@@ -25,7 +29,6 @@
     text-align: center;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
 }
@@ -44,13 +47,13 @@
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: center;
+	justify-content: flex-start;
 }
 
 .upgrade-container{
 	display: flex;
 	flex-direction: column;
-	flex-wrap: nowrap;
+	flex-wrap: wrap;
 	justify-content: left;
 }
 .canvas-container{
@@ -62,40 +65,172 @@
 
 </style>
 </head>
+
+<body style="margin: 0">
 <div class="main-container">
 <div class="canvas-container">
-<canvas id="gameCanvas" width="800" height="800"></canvas>
-<img id="mongogoN" src="./mongogoN.png" alt="Fix it" width="0" height="0">
+<canvas id="gameCanvas" width="640" height="640"></canvas>
+<img id="mongogoN" src="./BGdefault.png" alt="Fix it" width="0" height="0">
 <img id="mongogoFall" src="./mongogoFall.png" alt="Fix it" width="0" height="0">
 <img id="mongogoFallR" src="./mongogoFallR.png" alt="Fix it" width="0" height="0">
 
-<div><button class='button1' style='width:810px; height:120px; border-radius: 8px;' onclick='clicked()'><span>Obtain Nuts?</span></button>
-</div>
+<button class='button1' style='width:640px; height:100px; position: absolute; top: 540px;' onclick='clicked()'><span>Obtain Nuts?</span></button>
 </div>
 
-<div class="upgrade-container">
-<button id="treeBut" class='button' onclick="treeUp()"><span><img id='treePic' src="./mTreeG.png" align="center"></span><span>Mongogo Tree(20 Nuts)</span></button>
-<button id="irrBut" class='button' onclick="irrUp()"><span><img src="./mIrrG.png" align="center"></span><span>African Tear Irrigation(80 Nuts)</span></button>
-<button id="pressBut" class='button' onclick="pressUp()"><span><img src="./mPressG.png" align="center"></span><span>Nut Press(150 Nuts)</span></button>
-<button id="crackerBut" class='button' onclick="crackerUp()"><span><img src="./mCrackerG.png" align="center"></span><span>Nut Cracker(400 Nuts)</span></button>
-<button id="gmoBut" class='button' onclick="gmoUp()"><span><img src="./mGmoG.png" align="center"></span><span>GMO's(1000 Nuts)</span></button>
-<button id="shackBut" class='button' onclick="shackUp()"><span><img src="./mShackG.png" align="center"></span><span>Nut Shack(1500 Nuts)</button>
-<button id="truckBut" class='button' onclick="truckUp()"><span><img src="./mTruckG.png" align="center"></span><span>Nut Trucks(2000 Nuts)</span></button>
-<button id="factoryBut" class='button' onclick="factoryUp()"><span><img src="./mFactoryG.png" align="center"></span><span>Nut Factory(5000 Nuts)</span></button>
-<button id="rrBut" class='button' onclick="rrUp()"><span><img src="./mRrG.png" align="center"></span><span>Trans Continental Nut RR(9000 Nuts)</span></button>
-<button id="mGadgetBut" class='button' onclick="mGadgetUp()"><span><img src="./mGadgetG.png" align="center"></span><span>Mongogo Go Go Nut Gadget(15000 Nuts)</span></button>
+<div class="upgrade-container" style="height: 640px;">
+<button id="treeBut" class='button' onclick="treeUp()">
+	<img src="./mTreeG.png" style="padding: 4px">
+	<div>Mongogo Tree
+		</br>(20 Nuts)
+	</div>
+</button>
+<button id="irrBut" class='button' onclick="irrUp()">
+	<img src="./mIrrG.png" style="padding: 4px">
+	<div>African Tear Irrigation
+		</br>(80 Nuts)
+	</div>
+</button>
+<button id="pressBut" class='button' onclick="pressUp()">
+	<img src="./mPressG.png" style="padding: 4px">
+	<div>Nut Press
+		</br>(150 Nuts)
+	</div>
+</button>
+<button id="crackerBut" class='button' onclick="crackerUp()">
+	<img src="./mCrackerG.png" style="padding: 4px">
+	<div>Nut Cracker
+		</br>(400 Nuts)
+	</div>
+</button>
+<button id="gmoBut" class='button' onclick="gmoUp()">
+	<img src="./mGmoG.png" style="padding: 4px">
+	<div>GMO's
+		</br>(1000 Nuts)
+	</div>
+</button>
+<button id="shackBut" class='button' onclick="shackUp()">
+	<img src="./mShackG.png" style="padding: 4px">
+	<div>Nut Shack
+		</br>(1500 Nuts)
+	</div>
+</button>
+<button id="truckBut" class='button' onclick="truckUp()">
+	<img src="./mTruckG.png" style="padding: 4px">
+	<div>Nut Trucks
+		</br>(2000 Nuts)
+	</div>
+</button>
+<button id="factoryBut" class='button' onclick="factoryUp()">
+	<img src="./mFactoryG.png" style="padding: 4px">
+	<div>Nut Factory
+		</br>(5000 Nuts)
+	</div>
+</button>
+<button id="rrBut" class='button' onclick="rrUp()">
+	<img src="./mRrG.png" style="padding: 4px">
+	<div>Trans Continental Nut RR
+		</br>(9000 Nuts)
+	</div>
+</button>
+<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
+	<img src="./mGadgetG.png" style="padding: 4px">
+	<div>Mongogo Go Go Nut Gadget
+		<br>(15000 Nuts)
+	</div>
+</button>
+
+
+<!-- test buttons -->
+<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
+	<img src="./mGadgetG.png" style="padding: 4px">
+	<div>Mongogo Go Go Nut Gadget
+		<br>(15000 Nuts)
+	</div>
+</button>
+<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
+	<img src="./mGadgetG.png" style="padding: 4px">
+	<div>Mongogo Go Go Nut Gadget
+		<br>(15000 Nuts)
+	</div>
+</button>
+<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
+	<img src="./mGadgetG.png" style="padding: 4px">
+	<div>Mongogo Go Go Nut Gadget
+		<br>(15000 Nuts)
+	</div>
+</button>
+<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
+	<img src="./mGadgetG.png" style="padding: 4px">
+	<div>Mongogo Go Go Nut Gadget
+		<br>(15000 Nuts)
+	</div>
+</button>
+<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
+	<img src="./mGadgetG.png" style="padding: 4px">
+	<div>Mongogo Go Go Nut Gadget
+		<br>(15000 Nuts)
+	</div>
+</button>
+<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
+	<img src="./mGadgetG.png" style="padding: 4px">
+	<div>Mongogo Go Go Nut Gadget
+		<br>(15000 Nuts)
+	</div>
+</button>
+<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
+	<img src="./mGadgetG.png" style="padding: 4px">
+	<div>Mongogo Go Go Nut Gadget
+		<br>(15000 Nuts)
+	</div>
+</button>
+<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
+	<img src="./mGadgetG.png" style="padding: 4px">
+	<div>Mongogo Go Go Nut Gadget
+		<br>(15000 Nuts)
+	</div>
+</button>
+<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
+	<img src="./mGadgetG.png" style="padding: 4px">
+	<div>Mongogo Go Go Nut Gadget
+		<br>(15000 Nuts)
+	</div>
+</button>
+<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
+	<img src="./mGadgetG.png" style="padding: 4px">
+	<div>Mongogo Go Go Nut Gadget
+		<br>(15000 Nuts)
+	</div>
+</button>
+<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
+	<img src="./mGadgetG.png" style="padding: 4px">
+	<div>Mongogo Go Go Nut Gadget
+		<br>(15000 Nuts)
+	</div>
+</button>
+<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
+	<img src="./mGadgetG.png" style="padding: 4px">
+	<div>Mongogo Go Go Nut Gadget
+		<br>(15000 Nuts)
+	</div>
+</button>
+<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
+	<img src="./mGadgetG.png" style="padding: 4px">
+	<div>Mongogo Go Go Nut Gadget
+		<br>(15000 Nuts)
+	</div>
+</button>
+<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
+	<img src="./mGadgetG.png" style="padding: 4px">
+	<div>Mongogo Go Go Nut Gadget
+		<br>(15000 Nuts)
+	</div>
+</button>
+<!-- test buttons -->
+
 </div>
 </div>
-			<!-- <img src="./mTreeG.png" alt="Fix it" width="32" height="32" align="middle">
-			<img src="./mIrrG.png" alt="Fix it" width="32" height="32" align="middle">
-			<img src="./mPressG.png" alt="Fix it" width="32" height="32" align="middle">
-			<img src="./mCrackerG.png" alt="Fix it" width="32" height="32" align="middle">
-			<img src="./mGmoG.png" alt="Fix it" width="32" height="32" align="middle">
-			<img src="./mShackG.png" alt="Fix it" width="32" height="32" align="middle">
-			<img src="./mTruckG.png" alt="Fix it" width="32" height="32" align="middle">
-			<img src="./mFactoryG.png" alt="Fix it" width="32" height="32" align="middle">
-			<img src="./mRrG.png" alt="Fix it" width="32" height="32" align="middle">
-			<img src="./mGadgetG.png" alt="Fix it" width="500" height="500" align="middle"> -->
+</body>
+
 <script>
 c = document.getElementById('gameCanvas')
 bkgrnd = document.getElementById('mongogoN')
