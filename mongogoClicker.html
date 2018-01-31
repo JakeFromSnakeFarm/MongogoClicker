@@ -70,7 +70,7 @@
 <div class="main-container">
 <div class="canvas-container">
 <canvas id="gameCanvas" width="640" height="640"></canvas>
-<img id="mongogoN" src="./BGdefault.png" alt="Fix it" width="0" height="0">
+<img id="mongogoBG" src="./BGdefault.png" alt="Fix it" width="0" height="0">
 <img id="mongogoFall" src="./mongogoFall.png" alt="Fix it" width="0" height="0">
 <img id="mongogoFallR" src="./mongogoFallR.png" alt="Fix it" width="0" height="0">
 
@@ -79,55 +79,55 @@
 
 <div class="upgrade-container" style="height: 640px;">
 <button id="treeBut" class='button' onclick="treeUp()">
-	<img src="./mTreeG.png" style="padding: 4px">
+	<img src="./treeG.png" style="padding: 4px">
 	<div>Mongogo Tree
 		</br>(20 Nuts)
 	</div>
 </button>
 <button id="irrBut" class='button' onclick="irrUp()">
-	<img src="./mIrrG.png" style="padding: 4px">
+	<img src="./irrG.png" style="padding: 4px">
 	<div>African Tear Irrigation
 		</br>(80 Nuts)
 	</div>
 </button>
 <button id="pressBut" class='button' onclick="pressUp()">
-	<img src="./mPressG.png" style="padding: 4px">
+	<img src="./pressG.png" style="padding: 4px">
 	<div>Nut Press
 		</br>(150 Nuts)
 	</div>
 </button>
 <button id="crackerBut" class='button' onclick="crackerUp()">
-	<img src="./mCrackerG.png" style="padding: 4px">
+	<img src="./crackerG.png" style="padding: 4px">
 	<div>Nut Cracker
 		</br>(400 Nuts)
 	</div>
 </button>
 <button id="gmoBut" class='button' onclick="gmoUp()">
-	<img src="./mGmoG.png" style="padding: 4px">
+	<img src="./gmoG.png" style="padding: 4px">
 	<div>GMO's
 		</br>(1000 Nuts)
 	</div>
 </button>
 <button id="shackBut" class='button' onclick="shackUp()">
-	<img src="./mShackG.png" style="padding: 4px">
+	<img src="./shackG.png" style="padding: 4px">
 	<div>Nut Shack
 		</br>(1500 Nuts)
 	</div>
 </button>
 <button id="truckBut" class='button' onclick="truckUp()">
-	<img src="./mTruckG.png" style="padding: 4px">
+	<img src="./truckG.png" style="padding: 4px">
 	<div>Nut Trucks
 		</br>(2000 Nuts)
 	</div>
 </button>
 <button id="factoryBut" class='button' onclick="factoryUp()">
-	<img src="./mFactoryG.png" style="padding: 4px">
+	<img src="./factoryG.png" style="padding: 4px">
 	<div>Nut Factory
 		</br>(5000 Nuts)
 	</div>
 </button>
 <button id="rrBut" class='button' onclick="rrUp()">
-	<img src="./mRrG.png" style="padding: 4px">
+	<img src="./rrG.png" style="padding: 4px">
 	<div>Trans Continental Nut RR
 		</br>(9000 Nuts)
 	</div>
@@ -233,7 +233,7 @@
 
 <script>
 c = document.getElementById('gameCanvas')
-bkgrnd = document.getElementById('mongogoN')
+bkgrnd = document.getElementById('mongogoBG')
 mFall = document.getElementById('mongogoFall')
 ctx = c.getContext('2d')
 var mFallArr = [];
@@ -315,7 +315,7 @@ function treeUp() {
 	if(mongogoNuts>=upgrades[0].price) {
 		mongogoNuts-=upgrades[0].price;
 		mongogoRate+=upgrades[0].rate/10;
-		document.getElementById("treeBut").innerHTML = '<img src="./mTreeG.png" align="center">'+'Mongogo Tree('+Math.round((upgrades[0].price*=1.5)*10)/10+' Nuts)';
+		document.getElementById("treeBut").innerHTML = '<img src="./treeG.png" style="padding: 4px">'+'Mongogo Tree<br>('+Math.round((upgrades[0].price*=1.5)*10)/10+' Nuts)';
 	}
 }
 
@@ -323,7 +323,7 @@ function irrUp() {
 	if(mongogoNuts>=upgrades[1].price) {
 		mongogoNuts-=upgrades[1].price;
 		mongogoRate+=upgrades[1].rate/10;
-		document.getElementById("irrBut").innerHTML = '<img src="./mIrrG.png" align="center">'+'African Tear Irrigation('+Math.round((upgrades[1].price*=1.5)*10)/10+' Nuts)';
+		document.getElementById("irrBut").innerHTML = '<img src="./irrG.png" style="padding: 4px">'+'African Tear Irrigation<br>('+Math.round((upgrades[1].price*=1.5)*10)/10+' Nuts)';
 	}
 }
 
@@ -331,7 +331,7 @@ function pressUp() {
 	if(mongogoNuts>=upgrades[2].price) {
 		mongogoNuts-=upgrades[2].price;
 		mongogoRate+=upgrades[2].rate/10;
-		document.getElementById("pressBut").innerHTML = '<img src="./mPressG.png" align="center">'+'Nut Press('+Math.round((upgrades[2].price*=1.5)*10)/10+' Nuts)';
+		document.getElementById("pressBut").innerHTML = '<img src="./pressG.png" style="padding: 4px">'+'Nut Press<br>('+Math.round((upgrades[2].price*=1.5)*10)/10+' Nuts)';
 	}
 }
 
@@ -339,7 +339,7 @@ function crackerUp() {
 	if(mongogoNuts>=upgrades[3].price) {
 		mongogoNuts-=upgrades[3].price;
 		mongogoRate+=upgrades[3].rate/10;
-		document.getElementById("crackerBut").innerHTML = '<img src="./mCrackerG.png" align="center">'+'Nut Cracker('+Math.round((upgrades[3].price*=1.5)*10)/10+' Nuts)';
+		document.getElementById("crackerBut").innerHTML = '<img src="./crackerG.png" style="padding: 4px">'+'Nut Cracker<br>('+Math.round((upgrades[3].price*=1.5)*10)/10+' Nuts)';
 	}
 }
 
@@ -347,7 +347,7 @@ function gmoUp() {
 	if(mongogoNuts>=upgrades[4].price) {
 		mongogoNuts-=upgrades[4].price;
 		mongogoRate+=upgrades[4].rate/10;
-		document.getElementById("gmoBut").innerHTML = '<img src="./mGmoG.png" align="center">'+'GMO\'s('+Math.round((upgrades[4].price*=1.5)*10)/10+' Nuts)';
+		document.getElementById("gmoBut").innerHTML = '<img src="./gmoG.png" style="padding: 4px">'+'GMO\'s<br>('+Math.round((upgrades[4].price*=1.5)*10)/10+' Nuts)';
 	}
 }
 
@@ -355,7 +355,7 @@ function shackUp() {
 	if(mongogoNuts>=upgrades[5].price) {
 		mongogoNuts-=upgrades[5].price;
 		mongogoRate+=upgrades[5].rate/10;
-		document.getElementById("shackBut").innerHTML = '<img src="./mShackG.png" align="center">'+'Nut Shack('+Math.round((upgrades[5].price*=1.5)*10)/10+' Nuts)';
+		document.getElementById("shackBut").innerHTML = '<img src="./shackG.png" style="padding: 4px">'+'Nut Shack<br>('+Math.round((upgrades[5].price*=1.5)*10)/10+' Nuts)';
 	}
 }
 
@@ -363,7 +363,7 @@ function truckUp() {
 	if(mongogoNuts>=upgrades[6].price) {
 		mongogoNuts-=upgrades[6].price;
 		mongogoRate+=upgrades[6].rate/10;
-		document.getElementById("truckBut").innerHTML = '<img src="./mTruckG.png" align="center">'+'Nut Trucks('+Math.round((upgrades[6].price*=1.5)*10)/10+' Nuts)';
+		document.getElementById("truckBut").innerHTML = '<img src="./truckG.png" style="padding: 4px">'+'Nut Trucks<br>('+Math.round((upgrades[6].price*=1.5)*10)/10+' Nuts)';
 	}
 }
 
@@ -371,7 +371,7 @@ function factoryUp() {
 	if(mongogoNuts>=upgrades[7].price) {
 		mongogoNuts-=upgrades[7].price;
 		mongogoRate+=upgrades[7].rate/10;
-		document.getElementById("factoryBut").innerHTML = '<img src="./mFactoryG.png" align="center">'+'Nut Factory('+Math.round((upgrades[7].price*=1.5)*10)/10+' Nuts)';
+		document.getElementById("factoryBut").innerHTML = '<img src="./factoryG.png" style="padding: 4px">'+'Nut Factory<br>('+Math.round((upgrades[7].price*=1.5)*10)/10+' Nuts)';
 	}
 }
 
@@ -379,7 +379,7 @@ function rrUp() {
 	if(mongogoNuts>=upgrades[8].price) {
 		mongogoNuts-=upgrades[8].price;
 		mongogoRate+=upgrades[8].rate/10;
-		document.getElementById("rrBut").innerHTML = '<img src="./mRrG.png" align="center">'+'Trans Continental Nut RR('+Math.round((upgrades[8].price*=1.5)*10)/10+' Nuts)';
+		document.getElementById("rrBut").innerHTML = '<img src="./rrG.png" style="padding: 4px">'+'Trans Continental Nut RR<br>('+Math.round((upgrades[8].price*=1.5)*10)/10+' Nuts)';
 	}
 }
 
@@ -387,7 +387,7 @@ function mGadgetUp() {
 	if(mongogoNuts>=upgrades[9].price) {
 		mongogoNuts-=upgrades[9].price;
 		mongogoRate+=upgrades[9].rate/10;
-		document.getElementById("mGadgetBut").innerHTML = '<img src="./mGadgetG.png" align="center">'+'Mongogo Go Go Nut Gadget('+Math.round((upgrades[9].price*=1.5)*10)/10+' Nuts)';
+		document.getElementById("mGadgetBut").innerHTML = '<img src="./mGadgetG.png" style="padding: 4px">'+'Mongogo Go Go Nut Gadget<br>('+Math.round((upgrades[9].price*=1.5)*10)/10+' Nuts)';
 	}
 }
 function drawAll(){
