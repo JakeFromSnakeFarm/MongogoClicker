@@ -128,6 +128,16 @@
 	<div>Mongogo Go Go Nut Gadget<br>(15000 Nuts)
 	</div>
 </button>
+<button id="rocketBut" class='button' onclick="handleUpgrades(10)">
+	<img src="./rocketG.png" style="padding: 4px">
+	<div>Nut Rockets<br>(35000 Nuts)
+	</div>
+</button>
+<button id="moonBaseBut" class='button' onclick="handleUpgrades(11)">
+	<img src="./moonBaseG.png" style="padding: 4px">
+	<div>Mongogo Moon Base<br>(38000 Nuts)
+	</div>
+</button>
 
 
 <!-- test buttons -->
@@ -238,6 +248,8 @@ var upgrades = [
 	factoryObj = {butAttr: document.getElementById('factoryBut'), price: 5000, rate:18, owned:0, htmlContentPrefix: '<img src="./factoryG.png" style="padding: 4px">Nut Factory<br>('},
 	rrObj = {butAttr: document.getElementById('rrBut'), price: 9000, rate:25, owned:0, htmlContentPrefix: '<img src="./rrG.png" style="padding: 4px">Trans Continental Nut RR<br>('},
 	mGadgetObj = {butAttr: document.getElementById('mGadgetBut'), price: 15000, rate:30, owned:0, htmlContentPrefix: '<img src="./mGadgetG.png" style="padding: 4px">Mongogo Go Go Nut Gadget<br>('},
+	rocketObj = {butAttr: document.getElementById('rocketBut'), price: 35000, rate:70, owned:0, htmlContentPrefix: '<img src="./rocketG.png" style="padding: 4px">Nut Rocket<br>('},
+	moonBaseObj = {butAttr: document.getElementById('moonBaseBut'), price: 38000, rate:73, owned:0, htmlContentPrefix: '<img src="./moonBaseG.png" style="padding: 4px">Mongogo Moon Base<br>('},
 	];
 var fallY = -80;
 var fallX = -80;
