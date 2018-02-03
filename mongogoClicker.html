@@ -43,6 +43,12 @@
 .button1:hover:before {
     content:"Obtain Nuts!";
 }
+div.transbox {
+  background-color: #000000;
+  border: 1px solid black;
+  opacity: 0.4;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
+}
 .main-container {
 	display: flex;
 	flex-direction: row;
@@ -73,159 +79,87 @@
 <img id="mongogoBG" src="./BGdefault.png" alt="Fix it" width="0" height="0">
 <img id="mongogoFall" src="./mongogoFall.png" alt="Fix it" width="0" height="0">
 <img id="mongogoFallR" src="./mongogoFallR.png" alt="Fix it" width="0" height="0">
-
 <button class='button1' style='width:640px; height:100px; position: absolute; top: 540px;' onclick='clicked()'><span>Obtain Nuts?</span></button>
+<div style="position: absolute; top: 105px; left: 435px; width: 200px; height: 430px" class="transbox"></div>
+<div style="position: absolute; top: 105px; left: 435px; width: 200px; height: 430px">
+<table>
+<tr><td><img src="./tree.png" height="24" width="24" style='padding: 4px; float: left; background-color: white'></td><td><span id="treeCT" style="color: red; font-size: 16px; font-family: Impact"></span></td></tr>
+<tr><td><img src="./irr.png" height="24" width="24" style='padding: 4px; float: left; background-color: white'></td><td><span id="irrCT" style="color: red; font-size: 16px; font-family: Impact"></span></td></tr>
+<tr><td><img src="./press.png" height="24" width="24" style='padding: 4px; float: left; background-color: white'></td><td><span id="pressCT" style="color: red; font-size: 16px; font-family: Impact"></span></td></tr>
+<tr><td><img src="./cracker.png" height="24" width="24" style='padding: 4px; float: left; background-color: white'></td><td><span id="crackerCT" style="color: red; font-size: 16px; font-family: Impact"></span></td></tr>
+<tr><td><img src="./gmo.png" height="24" width="24" style='padding: 4px; float: left; background-color: white'></td><td><span id="gmoCT" style="color: red; font-size: 16px; font-family: Impact"></span></td></tr>
+<tr><td><img src="./shack.png" height="24" width="24" style='padding: 4px; float: left; background-color: white'></td><td><span id="shackCT" style="color: red; font-size: 16px; font-family: Impact"></span></td></tr>
+<tr><td><img src="./truck.png" height="24" width="24" style='padding: 4px; float: left; background-color: white'></td><td><span id="truckCT" style="color: red; font-size: 16px; font-family: Impact"></span></td></tr>
+<tr><td><img src="./factory.png" height="24" width="24" style='padding: 4px; float: left; background-color: white'></td><td><span id="factoryCT" style="color: red; font-size: 16px; font-family: Impact"></span></td></tr>
+<tr><td><img src="./rr.png" height="24" width="24" style='padding: 4px; float: left; background-color: white'></td><td><span id="rrCT" style="color: red; font-size: 16px; font-family: Impact"></span></td></tr>
+<tr><td><img src="./mGadget.png" height="24" width="24" style='padding: 4px; float: left; background-color: white'></td><td><span id="mGadgetCT" style="color: red; font-size: 16px; font-family: Impact"></span></td></tr>
+<tr><td><img src="./rocket.png" height="24" width="24" style='padding: 4px; float: left; background-color: white'></td><td><span id="rocketCT" style="color: red; font-size: 16px; font-family: Impact"></span></td></tr>
+<tr><td><img src="./moonBase.png" height="24" width="24" style='padding: 4px; float: left; background-color: white'></td><td><span id="moonBaseCT" style="color: red; font-size: 16px; font-family: Impact"></span></td></tr>
+</table>
+</div>
 </div>
 
 <div class="upgrade-container" style="height: 640px;">
 <button id="treeBut" class='button' onclick="handleUpgrades(0)">
-	<img src="./treeG.png" style="padding: 4px">
+	<img src="./tree.png" style="padding: 4px">
 	<div>Mongogo Tree</br>(20 Nuts)
 	</div>
 </button>
 <button id="irrBut" class='button' onclick="handleUpgrades(1)">
-	<img src="./irrG.png" style="padding: 4px">
+	<img src="./irr.png" style="padding: 4px">
 	<div>African Tear Irrigation</br>(80 Nuts)
 	</div>
 </button>
 <button id="pressBut" class='button' onclick="handleUpgrades(2)">
-	<img src="./pressG.png" style="padding: 4px">
+	<img src="./press.png" style="padding: 4px">
 	<div>Nut Press</br>(150 Nuts)
 	</div>
 </button>
 <button id="crackerBut" class='button' onclick="handleUpgrades(3)">
-	<img src="./crackerG.png" style="padding: 4px">
+	<img src="./cracker.png" style="padding: 4px">
 	<div>Nut Cracker</br>(400 Nuts)
 	</div>
 </button>
 <button id="gmoBut" class='button' onclick="handleUpgrades(4)">
-	<img src="./gmoG.png" style="padding: 4px">
+	<img src="./gmo.png" style="padding: 4px">
 	<div>GMO's</br>(1000 Nuts)
 	</div>
 </button>
 <button id="shackBut" class='button' onclick="handleUpgrades(5)">
-	<img src="./shackG.png" style="padding: 4px">
+	<img src="./shack.png" style="padding: 4px">
 	<div>Nut Shack</br>(1500 Nuts)
 	</div>
 </button>
 <button id="truckBut" class='button' onclick="handleUpgrades(6)">
-	<img src="./truckG.png" style="padding: 4px">
+	<img src="./truck.png" style="padding: 4px">
 	<div>Nut Trucks</br>(2000 Nuts)
 	</div>
 </button>
 <button id="factoryBut" class='button' onclick="handleUpgrades(7)">
-	<img src="./factoryG.png" style="padding: 4px">
+	<img src="./factory.png" style="padding: 4px">
 	<div>Nut Factory</br>(5000 Nuts)
 	</div>
 </button>
 <button id="rrBut" class='button' onclick="handleUpgrades(8)">
-	<img src="./rrG.png" style="padding: 4px">
+	<img src="./rr.png" style="padding: 4px">
 	<div>Trans Continental Nut RR</br>(9000 Nuts)
 	</div>
 </button>
 <button id="mGadgetBut" class='button' onclick="handleUpgrades(9)">
-	<img src="./mGadgetG.png" style="padding: 4px">
+	<img src="./mGadget.png" style="padding: 4px">
 	<div>Mongogo Go Go Nut Gadget<br>(15000 Nuts)
 	</div>
 </button>
 <button id="rocketBut" class='button' onclick="handleUpgrades(10)">
-	<img src="./rocketG.png" style="padding: 4px">
+	<img src="./rocket.png" style="padding: 4px">
 	<div>Nut Rockets<br>(35000 Nuts)
 	</div>
 </button>
 <button id="moonBaseBut" class='button' onclick="handleUpgrades(11)">
-	<img src="./moonBaseG.png" style="padding: 4px">
+	<img src="./moonBase.png" style="padding: 4px">
 	<div>Mongogo Moon Base<br>(38000 Nuts)
 	</div>
 </button>
-
-
-<!-- test buttons -->
-<!-- <button id="mGadgetBut" class='button' onclick="mGadgetUp()">
-	<img src="./mGadgetG.png" style="padding: 4px">
-	<div>Mongogo Go Go Nut Gadget
-		<br>(15000 Nuts)
-	</div>
-</button>
-<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
-	<img src="./mGadgetG.png" style="padding: 4px">
-	<div>Mongogo Go Go Nut Gadget
-		<br>(15000 Nuts)
-	</div>
-</button>
-<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
-	<img src="./mGadgetG.png" style="padding: 4px">
-	<div>Mongogo Go Go Nut Gadget
-		<br>(15000 Nuts)
-	</div>
-</button>
-<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
-	<img src="./mGadgetG.png" style="padding: 4px">
-	<div>Mongogo Go Go Nut Gadget
-		<br>(15000 Nuts)
-	</div>
-</button>
-<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
-	<img src="./mGadgetG.png" style="padding: 4px">
-	<div>Mongogo Go Go Nut Gadget
-		<br>(15000 Nuts)
-	</div>
-</button>
-<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
-	<img src="./mGadgetG.png" style="padding: 4px">
-	<div>Mongogo Go Go Nut Gadget
-		<br>(15000 Nuts)
-	</div>
-</button>
-<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
-	<img src="./mGadgetG.png" style="padding: 4px">
-	<div>Mongogo Go Go Nut Gadget
-		<br>(15000 Nuts)
-	</div>
-</button>
-<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
-	<img src="./mGadgetG.png" style="padding: 4px">
-	<div>Mongogo Go Go Nut Gadget
-		<br>(15000 Nuts)
-	</div>
-</button>
-<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
-	<img src="./mGadgetG.png" style="padding: 4px">
-	<div>Mongogo Go Go Nut Gadget
-		<br>(15000 Nuts)
-	</div>
-</button>
-<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
-	<img src="./mGadgetG.png" style="padding: 4px">
-	<div>Mongogo Go Go Nut Gadget
-		<br>(15000 Nuts)
-	</div>
-</button>
-<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
-	<img src="./mGadgetG.png" style="padding: 4px">
-	<div>Mongogo Go Go Nut Gadget
-		<br>(15000 Nuts)
-	</div>
-</button>
-<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
-	<img src="./mGadgetG.png" style="padding: 4px">
-	<div>Mongogo Go Go Nut Gadget
-		<br>(15000 Nuts)
-	</div>
-</button>
-<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
-	<img src="./mGadgetG.png" style="padding: 4px">
-	<div>Mongogo Go Go Nut Gadget
-		<br>(15000 Nuts)
-	</div>
-</button>
-<button id="mGadgetBut" class='button' onclick="mGadgetUp()">
-	<img src="./mGadgetG.png" style="padding: 4px">
-	<div>Mongogo Go Go Nut Gadget
-		<br>(15000 Nuts)
-	</div>
-</button> -->
-<!-- test buttons -->
 
 </div>
 </div>
@@ -238,18 +172,18 @@ mFall = document.getElementById('mongogoFall')
 ctx = c.getContext('2d')
 var mFallArr = [];
 var upgrades = [
-	treeObj = {butAttr: document.getElementById('treeBut'), price: 20, rate:0.5, owned:0, htmlContentPrefix: '<img src="./treeG.png" style="padding: 4px">Mongogo Tree<br>('},
-	irrObj = {butAttr: document.getElementById('irrBut'), price: 80, rate:1, owned:0, htmlContentPrefix: '<img src="./irrG.png" style="padding: 4px">African Tear Irrigation<br>('},
-	pressObj = {butAttr: document.getElementById('pressBut'), price: 150, rate:2, owned:0, htmlContentPrefix: '<img src="./pressG.png" style="padding: 4px">Nut Press<br>('},
-	crackerObj = {butAttr: document.getElementById('crackerBut'), price: 400, rate:7, owned:0, htmlContentPrefix: '<img src="./crackerG.png" style="padding: 4px">Nut Cracker<br>('},
-	gmoObj = {butAttr: document.getElementById('gmoBut'), price: 1000, rate:10, owned:0, htmlContentPrefix: '<img src="./gmoG.png" style="padding: 4px">GMO\'s<br>('},
-	shackObj = {butAttr: document.getElementById('shackBut'), price: 1500, rate:13, owned:0, htmlContentPrefix: '<img src="./shackG.png" style="padding: 4px">Nut Shack<br>('},
-	truckObj = {butAttr: document.getElementById('truckBut'), price: 2000, rate:14, owned:0, htmlContentPrefix: '<img src="./truckG.png" style="padding: 4px">Nut Trucks<br>('},
-	factoryObj = {butAttr: document.getElementById('factoryBut'), price: 5000, rate:18, owned:0, htmlContentPrefix: '<img src="./factoryG.png" style="padding: 4px">Nut Factory<br>('},
-	rrObj = {butAttr: document.getElementById('rrBut'), price: 9000, rate:25, owned:0, htmlContentPrefix: '<img src="./rrG.png" style="padding: 4px">Trans Continental Nut RR<br>('},
-	mGadgetObj = {butAttr: document.getElementById('mGadgetBut'), price: 15000, rate:30, owned:0, htmlContentPrefix: '<img src="./mGadgetG.png" style="padding: 4px">Mongogo Go Go Nut Gadget<br>('},
-	rocketObj = {butAttr: document.getElementById('rocketBut'), price: 35000, rate:70, owned:0, htmlContentPrefix: '<img src="./rocketG.png" style="padding: 4px">Nut Rocket<br>('},
-	moonBaseObj = {butAttr: document.getElementById('moonBaseBut'), price: 38000, rate:73, owned:0, htmlContentPrefix: '<img src="./moonBaseG.png" style="padding: 4px">Mongogo Moon Base<br>('},
+	treeObj = {name: 'tree', fullName: 'Mongogo Tree', price: 20, rate:0.5, owned:0, htmlContentPrefix: '<img src="./treeG.png" style="padding: 4px">Mongogo Tree<br>('},
+	irrObj = {name: 'irr', fullName: 'African Tear Irrigation', price: 80, rate:1, owned:0, htmlContentPrefix: '<img src="./irrG.png" style="padding: 4px">African Tear Irrigation<br>('},
+	pressObj = {name: 'press', fullName: 'Nut Press', price: 150, rate:2, owned:0, htmlContentPrefix: '<img src="./pressG.png" style="padding: 4px">Nut Press<br>('},
+	crackerObj = {name: 'cracker', fullName: 'Nut Cracker', price: 400, rate:7, owned:0, htmlContentPrefix: '<img src="./crackerG.png" style="padding: 4px">Nut Cracker<br>('},
+	gmoObj = {name: 'gmo', fullName: 'GMO', price: 1000, rate:10, owned:0, htmlContentPrefix: '<img src="./gmoG.png" style="padding: 4px">GMO\'s<br>('},
+	shackObj = {name: 'shack', fullName: 'Nut Shack', price: 1500, rate:13, owned:0, htmlContentPrefix: '<img src="./shackG.png" style="padding: 4px">Nut Shack<br>('},
+	truckObj = {name: 'truck', fullName: 'Nut Trucks', price: 2000, rate:14, owned:0, htmlContentPrefix: '<img src="./truckG.png" style="padding: 4px">Nut Trucks<br>('},
+	factoryObj = {name: 'factory', fullName: 'Nut Factory', price: 5000, rate:18, owned:0, htmlContentPrefix: '<img src="./factoryG.png" style="padding: 4px">Nut Factory<br>('},
+	rrObj = {name: 'rr', fullName: 'Trans Continental Nut RR', price: 9000, rate:25, owned:0, htmlContentPrefix: '<img src="./rrG.png" style="padding: 4px">Trans Continental Nut RR<br>('},
+	mGadgetObj = {name: 'mGadget', fullName: 'Mongogo Go Go Nut Gadget', price: 15000, rate:30, owned:0, htmlContentPrefix: '<img src="./mGadgetG.png" style="padding: 4px">Mongogo Go Go Nut Gadget<br>('},
+	rocketObj = {name: 'rocket', fullName: 'Nut Rocket', price: 35000, rate:70, owned:0, htmlContentPrefix: '<img src="./rocketG.png" style="padding: 4px">Nut Rocket<br>('},
+	moonBaseObj = {name: 'moonBase', fullName: 'Mongogo Moon Base' , price: 38000, rate:73, owned:0, htmlContentPrefix: '<img src="./moonBaseG.png" style="padding: 4px">Mongogo Moon Base<br>('},
 	];
 var fallY = -80;
 var fallX = -80;
@@ -293,12 +227,13 @@ function nutCheck(upgradeObj){
 }
 
 function disable(upgradeObj,state){
+	Obj = document.getElementById(upgradeObj.name+'But')
 	if(state) {
- 		upgradeObj.butAttr.style.opacity = "0.6";
-     	upgradeObj.butAttr.style.cursor = "not-allowed";
+ 		Obj.style.opacity = "0.6";
+     	Obj.style.cursor = "not-allowed";
      } else {
-     	upgradeObj.butAttr.style.opacity = "1";
-     	upgradeObj.butAttr.style.cursor = "pointer";
+     	Obj.style.opacity = "1";
+     	Obj.style.cursor = "pointer";
  	}
 }
 
@@ -318,7 +253,8 @@ function handleUpgrades(index) {
 		mongogoNuts-=upgrades[index].price;
 		mongogoRate+=upgrades[index].rate/10
 		upgrades[index].owned++;
-		upgrades[index].butAttr.innerHTML = upgrades[index].htmlContentPrefix+Math.round((upgrades[index].price*=Math.pow(1.5,upgrades[index].owned))*10)/10+' Nuts)';
+		document.getElementById(upgrades[index].name+'But').innerHTML = '<img src="./'+upgrades[index].name+'.png" style="padding: 4px">'+upgrades[index].fullName+'<br>'+Math.round((upgrades[index].price*=Math.pow(1.5,upgrades[index].owned))*10)/10+' Nuts)';
+		document.getElementById(upgrades[index].name+'CT').innerHTML = upgrades[index].owned;
 	}
 }
 
