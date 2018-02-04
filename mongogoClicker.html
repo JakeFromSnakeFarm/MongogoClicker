@@ -253,7 +253,7 @@ function handleUpgrades(index) {
 		mongogoNuts-=upgrades[index].price;
 		mongogoRate+=upgrades[index].rate/10
 		upgrades[index].owned++;
-		document.getElementById(upgrades[index].name+'But').innerHTML = '<img src="./'+upgrades[index].name+'.png" style="padding: 4px">'+upgrades[index].fullName+'<br>'+Math.round((upgrades[index].price*=Math.pow(1.5,upgrades[index].owned))*10)/10+' Nuts)';
+		document.getElementById(upgrades[index].name+'But').innerHTML = '<img src="./'+upgrades[index].name+'.png" style="padding: 4px">'+upgrades[index].fullName+'<br>'+Math.round((upgrades[index].price*=1.5)*10)/10+' Nuts)';
 		document.getElementById(upgrades[index].name+'CT').innerHTML = upgrades[index].owned;
 	}
 }
