@@ -232,8 +232,11 @@ div.transbox {
 </div>
 </div>
 </div>
+<div id='reset' style="opacity:0">
+<p1>Experiencing problems? You might need to</p1>
+<button onclick="resetCookie()">Reset</button>
+</div>
 </body>
-
 <script>
 var c = document.getElementById('gameCanvas')
 var bkgrnd = document.getElementById('mongogoBG')
@@ -293,6 +296,7 @@ class Nut{
 	}
 }
 window.onload = function(e){
+	try{
 	ctx.drawImage(bkgrnd,0,0)
 	let d = new Date();
     d.setTime(d.getTime() + (30*24*60*60*1000));
@@ -327,6 +331,13 @@ setInterval(function(){document.cookie="upgrades="+JSON.stringify(upgrades)+";"+
 setInterval(function(){mongogoNuts+=mongogoRate}, 100);
 reloadEssentials();
 update();
+}catch(err){
+document.getElementById('reset').style.opacity='1';
+}
+}
+function resetCookie(){
+	document.cookie="upgrades=;expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+	location.reload();
 }
 function reloadEssentials(){
 	mongogoRate=upgrades[upgrades.length-1];
@@ -361,6 +372,7 @@ function disable(upgradeObj,state){
 }
 
 function update(){
+	try{
 	upgrades[upgrades.length-3].npc=nutsPerClick;
 	upgrades[upgrades.length-2]=mongogoNuts;
 	upgrades[upgrades.length-1]=mongogoRate;
@@ -372,6 +384,9 @@ function update(){
 	mFallArr[i].show();
 	}
 	window.requestAnimationFrame(update);
+	}catch(err){
+	document.getElementById('reset').style.opacity='1';
+	}
 	}
 
 function handleUpgrades(index) {
