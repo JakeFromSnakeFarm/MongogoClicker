@@ -79,6 +79,9 @@ div.transbox {
 }
 
 .main-container {
+	position: absolute;
+	left: 25%;
+	top: 10%;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -126,7 +129,7 @@ div.transbox {
 </style>
 </head>
 
-<body style="margin: 0">
+<body style="margin: 0" bgcolor="#787a73">
 <div class="main-container">
 <div class="canvas-container">
 <canvas id="gameCanvas" width="640" height="640"></canvas>
@@ -134,6 +137,8 @@ div.transbox {
 <img id="mongogoFall" src="./mongogoFall0.png" alt="Fix it" width="0" height="0">
 <button class='button1' style='width:640px; height:100px; position: absolute; top: 540px;' onclick='clicked()'><span>Obtain Nuts?</span></button>
 <button id='clickUp' class='upClicker' style='z-index:-1;border-radius:8px;left:440px; width:200px; height:90px; position: absolute; top: 545px;' onclick='clickerUp()'><span>Upgrade Clicker</span></button>
+<button class='upClicker' style='z-index:1;border-radius:8px;left:0px; width:200px; height:90px; position: absolute; top: 545px;' onclick='buyClicker()'><span>Buy Clicker<br>(Max of 10)<br>1000 Nuts</span></button>
+
 <div style="position: absolute; top: 138px; left: 526px; width: 110px; height: 398px" class="transbox"></div>
 
 <div class="upgrade-container" style="position: absolute; top: 140px; left: 528px;  height: 400px">
@@ -262,10 +267,10 @@ var upgrades = [
 	{name: 'marsBase', fullName: 'Mongogo Mars Base' , price: 93000, rate:115, owned:0},
 	{name: 'marsRover', fullName: 'Mongogo Mars Rover' , price: 100000, rate:125, owned:0},
 	{name: 'ss', fullName: 'Conquer The Solar System' , price: 300000, rate:300, owned:0},
-	{name: 'galaxy', fullName: 'Literally Own The Galaxy' , price: 10000000, rate:1200, owned:0},
-	{name: 'mAtom', fullName: 'Sub-Atomic Mongogo Nuts' , price: 15000000, rate:1480, owned:0},
-	{name: 'magic', fullName: 'Mongogo Magic' , price: 18000000, rate:1800, owned:0},
-	{name: 'time', fullName: 'Mongogo Time Travel' , price: 40000000, rate:3000, owned:0},
+	{name: 'galaxy', fullName: 'Literally Own The Galaxy' , price: 3000000, rate:1200, owned:0},
+	{name: 'mAtom', fullName: 'Sub-Atomic Mongogo Nuts' , price: 10000000, rate:4200, owned:0},
+	{name: 'magic', fullName: 'Mongogo Magic' , price: 13000000, rate:6000, owned:0},
+	{name: 'time', fullName: 'Mongogo Time Travel' , price: 20000000, rate:10000, owned:0},
 	{npc: 1, nutImg: 0,price:5000},
 	0,
 	0,
@@ -275,6 +280,7 @@ var fallX = -80;
 var clicks = 0;
 var n=0;
 var upgradeable=false;
+var clickers=0;
 var nutsPerClick=upgrades[upgrades.length-3].npc;
 var mongogoRate=upgrades[upgrades.length-1];
 var mongogoNuts=upgrades[upgrades.length-2];
@@ -306,7 +312,7 @@ window.onload = function(e){
     if(savedUpgrades){
     token =  JSON.parse(savedUpgrades);
 	}
-if (savedUpgrades) {
+	if (savedUpgrades) {
 	if(upgrades.length!=JSON.parse(savedUpgrades).length){
     	alert("Game Update, I added new stuff!");
     	let tempUpgrades = JSON.parse(savedUpgrades);
@@ -348,7 +354,7 @@ function reloadEssentials(){
 		document.getElementById(upgrades[index].name+'But').innerHTML = '<img src="./'+upgrades[index].name+'.png" style="padding: 4px">'+upgrades[index].fullName+'<br>('+Math.round(itemPrice*10)/10+' Nuts)';
 		document.getElementById(upgrades[index].name+'CT').innerHTML = upgrades[index].owned;
 	}
-	document.getElementById('clickUp').innerHTML = 'Upgrade Clicker<br>'+upgrades[upgrades.length-3].price;
+	document.getElementById('clickUp').innerHTML = 'Upgrade Clicker<br>'+upgrades[upgrades.length-3].price+" Nuts";
 	document.getElementById('mongogoFall').src = './mongogoFall'+upgrades[upgrades.length-3].nutImg+'.png';
 	mFall = document.getElementById('mongogoFall');
 }
@@ -403,11 +409,12 @@ function handleUpgrades(index) {
 
 function drawAll(){
 	ctx.drawImage(bkgrnd,0,0);
-	ctx.fillStyle='red'
+	ctx.fillStyle='orange'
 	ctx.font = "50px Impact";
 	ctx.fillText("Mongogo Nuts: "+ Math.round(mongogoNuts), 10, 50);
 	ctx.fillText("Nuts Per Second: "+ Math.round((mongogoRate*10)*10)/10, 10, 100);
 	ctx.fillText("Nuts Per Click: "+ nutsPerClick, 10, 150);
+	ctx.fillText("Clickers: "+ clickers, 10, 200);
 
 /*var grd=ctx.createLinearGradient(0,0,1000,1000);
 grd.addColorStop(0,"Aqua");
@@ -420,14 +427,20 @@ function clickerUp(){
 		upgrades[upgrades.length-3].nutImg++;
 		document.getElementById('mongogoFall').src = './mongogoFall'+upgrades[upgrades.length-3].nutImg+'.png';
 		upgradeable=false;
-		document.getElementById('clickUp').innerHTML = 'Upgrade Clicker<br>'+upgrades[upgrades.length-3].price*Math.pow(3,upgrades[upgrades.length-3].nutImg);
+		document.getElementById('clickUp').innerHTML = 'Upgrade Clicker<br>'+upgrades[upgrades.length-3].price*Math.pow(3,upgrades[upgrades.length-3].nutImg)+" Nuts";
 			document.getElementById('clickUp').style.zIndex=-1;
 			document.getElementById('mongogoFall').src = './mongogoFall'+upgrades[upgrades.length-3].nutImg+'.png';
 			mFall = document.getElementById('mongogoFall');
 			upgradeable=false;
 	}
 }
-
+function buyClicker(){
+	if(mongogoNuts>=1000 && clickers<10){
+		mongogoNuts-=1000;
+		clickers++;
+		setInterval(function(){clicked()}, 1000);
+	}
+}
 function clicked(event) {
 	document.body.onkeydown = function(e){
     if(e.keyCode == 13){
@@ -436,7 +449,7 @@ function clicked(event) {
 }	
 	mFallArr[n] = new Nut();
 	n++;
-	if(n==20)
+	if(n==25)
 	n=0;
 	if(clicks%500==0&&clicks!=0){
 		if(upgrades[upgrades.length-3].nutImg<5){
