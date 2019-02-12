@@ -415,23 +415,20 @@ function drawAll(){
 	ctx.fillText("Nuts Per Second: "+ Math.round((mongogoRate*10)*10)/10, 10, 100);
 	ctx.fillText("Nuts Per Click: "+ nutsPerClick, 10, 150);
 	ctx.fillText("Clickers: "+ clickers, 10, 200);
-
-/*var grd=ctx.createLinearGradient(0,0,1000,1000);
-grd.addColorStop(0,"Aqua");
-grd.addColorStop(1,"Chartreuse");*/
 }
+
 function clickerUp(){
-	if(upgradeable&&mongogoNuts>=upgrades[upgrades.length-3].price*Math.pow(3,upgrades[upgrades.length-3].nutImg)){
+	let upgradePrice = upgrades[upgrades.length-3].price*Math.pow(3,upgrades[upgrades.length-3].nutImg);
+	if(upgradeable&&mongogoNuts>=upgradePrice){
 		nutsPerClick*=5
-		mongogoNuts-=upgrades[upgrades.length-3].price*Math.pow(3,upgrades[upgrades.length-3].nutImg);
+		mongogoNuts-= upgradePrice;
 		upgrades[upgrades.length-3].nutImg++;
 		document.getElementById('mongogoFall').src = './mongogoFall'+upgrades[upgrades.length-3].nutImg+'.png';
+		document.getElementById('clickUp').innerHTML = 'Upgrade Clicker<br>'+upgradePrice+" Nuts";
+		document.getElementById('clickUp').style.zIndex=-1;
+		document.getElementById('mongogoFall').src = './mongogoFall'+upgrades[upgrades.length-3].nutImg+'.png';
+		mFall = document.getElementById('mongogoFall');
 		upgradeable=false;
-		document.getElementById('clickUp').innerHTML = 'Upgrade Clicker<br>'+upgrades[upgrades.length-3].price*Math.pow(3,upgrades[upgrades.length-3].nutImg)+" Nuts";
-			document.getElementById('clickUp').style.zIndex=-1;
-			document.getElementById('mongogoFall').src = './mongogoFall'+upgrades[upgrades.length-3].nutImg+'.png';
-			mFall = document.getElementById('mongogoFall');
-			upgradeable=false;
 	}
 }
 function buyClicker(){
@@ -459,12 +456,10 @@ function clicked(event) {
 		mFall = document.getElementById('mongogoFall');
 		upgradeable=true;
 		setTimeout(function(){
-			if(upgradeable){
 			document.getElementById('clickUp').style.zIndex=-1;
 			document.getElementById('mongogoFall').src = './mongogoFall'+upgrades[upgrades.length-3].nutImg+'.png';
 			mFall = document.getElementById('mongogoFall');
 			upgradeable=false;
-			}
 		},15000)
 		}
 	}
