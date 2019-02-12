@@ -424,7 +424,7 @@ function clickerUp(){
 		mongogoNuts-= upgradePrice;
 		upgrades[upgrades.length-3].nutImg++;
 		document.getElementById('mongogoFall').src = './mongogoFall'+upgrades[upgrades.length-3].nutImg+'.png';
-		document.getElementById('clickUp').innerHTML = 'Upgrade Clicker<br>'+upgradePrice+" Nuts";
+		document.getElementById('clickUp').innerHTML = 'Upgrade Clicker<br>'+upgrades[upgrades.length-3].price*Math.pow(3,upgrades[upgrades.length-3].nutImg)+" Nuts";
 		document.getElementById('clickUp').style.zIndex=-1;
 		document.getElementById('mongogoFall').src = './mongogoFall'+upgrades[upgrades.length-3].nutImg+'.png';
 		mFall = document.getElementById('mongogoFall');
